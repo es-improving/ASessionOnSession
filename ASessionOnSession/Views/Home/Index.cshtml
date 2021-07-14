@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model IndexViewModel
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Tell me who you are.</p>
+    <form method="post">
+        <input name="yourname" placeholder="Your name goes here" />
+        <button type="submit">Remember me!</button>
+    </form>
+
+    <section>
+        <h2>Puppies and Popsicles - This Adds to a List of Puppy and Popsicle Dreams</h2>
+        <form method="post" action="/Home/PuppiesAndPopsicles">
+            <textarea name="myDesiredPuppy" cols="30" placeholder="What breed of puppy do you want to see?"></textarea>
+            <br />
+            <input type="text" name="myDesiredPopsicle" placeholder="What flavor of popsicle do you want?" />
+            <br />
+            <button type="submit">This is what I want</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Puppies and Popsicles - This Adds a Single Puppy/Popsicle Dream into Session</h2>
+        <form method="post" action="/Home/SinglePuppyAndPopsicle">
+            <textarea name="myDesiredPuppy" cols="30" placeholder="What breed of puppy do you want to see?"></textarea>
+            <br />
+            <input type="text" name="myDesiredPopsicle" placeholder="What flavor of popsicle do you want?" />
+            <br />
+            <button type="submit">This is what I want</button>
+        </form>
+    </section>
+
+
+    <h2>Info</h2>
+
+    <p>How many puppy popsicle dreams are in session? @Model.ListDreamCount.</p>
+
+    <style>
+        section {
+            margin: 20px 0;
+        }
+    </style>
+
+    @*<style>
+            .annoyed {
+                background-color: red;
+            }
+
+            .something-else {
+                color: white;
+            }
+        </style>*@
+
+    @*<script>
+            setInterval(() => {
+                document.body.classList.toggle('annoyed');
+            }, 1000);
+
+            setInterval(() => {
+                document.body.classList.toggle('something-else');
+            }, 300);
+        </script>*@
+
+</div>

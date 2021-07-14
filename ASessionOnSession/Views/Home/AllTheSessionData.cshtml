@@ -1,0 +1,38 @@
+﻿@{
+}
+@model AllTheSessionDataViewModel
+
+
+<p>Username: @Model.UsernameInSession</p>
+
+
+@if (Model.SingleObjectInSession != null)
+{
+    <p>The last puppy popsicle dream you submitted was for the breed @Model.SingleObjectInSession.MyDesiredPuppy and popsicle flavor @Model.SingleObjectInSession.MyDesiredPopsicle.</p>
+}
+
+
+@if (Model.DreamsExist)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Puppy</th>
+                <th>Popsicle Flavor</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var dream in Model.Dreams)
+        {
+            <tr>
+                <td>@dream.MyDesiredPuppy</td>
+                <td>@dream.MyDesiredPopsicle</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>You have hopes of neither puppies nor popsicles.</p>
+}
